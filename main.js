@@ -17,3 +17,12 @@ function map(coll, func) {
 
 	return map;
 }
+
+
+function reduce(coll, func, accumulator) {
+	for (var i = 0; i < coll.length; i++) {
+		accumulator = func(accumulator,coll[i]);
+	}
+
+	return accumulator;
+}
