@@ -20,3 +20,24 @@ describe("reduce", function() {
   });
 
 });
+
+
+describe("find", function() {
+  simple_test_array = [1, 2, 3];
+
+  it("Should return the first element that satisfies the predicate.", function () {
+    assert.deepEqual(find(simple_test_array, function(num){ return num % 2 == 0; }), 2);
+    assert.deepEqual(find(simple_test_array, function(num){ return num % 3 == 0; }), 3);
+  });
+
+});
+
+
+describe("filter", function() {
+
+  it("Should return a collection of elements that satisfy the predicate.", function () {
+    assert.deepEqual(filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; }), [2,4,6]);
+    assert.deepEqual(filter([1, 2, 3, 4, 5, 6], function(num){ return num % 3 == 0; }), [3,6]);
+  });
+
+});
