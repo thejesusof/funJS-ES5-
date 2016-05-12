@@ -26,3 +26,30 @@ function reduce(coll, func, accumulator) {
 
 	return accumulator;
 }
+
+
+function find(coll, pred) {
+	for (var i = 0; i < coll.length; i++) {
+		var item = coll[i];
+		pred(item);
+		if (pred(item)) {
+			var result = item;
+			break;
+		}
+	}
+	return result;
+}
+
+
+function filter(coll, pred) {
+	var result = [];
+
+	for (var i = 0; i < coll.length; i++) {
+		var item = coll[i];
+		pred(item);
+		if (pred(item)) {
+			result.push(item);
+		}
+	}
+	return result;
+}
