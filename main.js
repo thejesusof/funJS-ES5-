@@ -105,3 +105,23 @@ function reject(coll, pred) {
 
   return result;
 }
+
+/**
+ * Applies predicate function to each element of the collection and returns
+ * true if all elements in array satisfy the predicate, false if they do not.
+ *
+ * @param {array} coll - Array of any elements.
+ * @param {function} pred - Predicate function.
+ *
+ * @return {boolean} true/false - Boolean.
+ */
+function all(coll, pred) {
+
+  for (var i = 0; i < coll.length; i++) {
+    if (!pred(coll[i])) {
+      return false;
+    }
+  }
+
+  return true;
+}

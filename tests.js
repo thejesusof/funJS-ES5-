@@ -42,3 +42,31 @@ describe('filter', function () {
   });
 
 });
+
+describe('reject', function () {
+
+  it('Should return a collection of elements that does not satisfy the predicate.', function () {
+    assert.deepEqual(reject([1, 2, 3, 4, 5, 6], function (num) { return num % 2 == 0; }), [1, 3, 5]);
+
+    assert.deepEqual(reject([1, 2, 3, 4, 5, 6], function (num) { return num % 3 == 0; }), [1, 2, 4, 5]);
+  });
+
+});
+
+describe('all', function () {
+
+  it('Should return true if all elements satisfy the predicate.', function () {
+    assert.deepEqual(all([2, 4, 6, 8, 20, 22], function (num) { return num % 2 === 0; }), true);
+
+    assert.deepEqual(all([20, 40, 60, 80, 20, 220], function (num) { return num % 10 === 0; }), true);
+  });
+
+  it('Should return false if not all elements satisfy the predicate.', function () {
+    assert.deepEqual(all([2, 4, 6, 8, 20, 21], function (num) { return num % 2 === 0; }), false);
+
+    assert.deepEqual(all([20, 40, 60, 83, 20, 220], function (num) { return num % 10 === 0; }), false);
+
+    assert.deepEqual(all([3, 60, 90, 83, 20, 220], function (num) { return num % 3 === 0; }), false);
+  });
+
+});
