@@ -83,3 +83,25 @@ function filter(coll, pred) {
 
   return result;
 }
+
+/**
+ * Applies predicate function to each element of the collection and returns
+ * new array of elements that does not satisfies the predicate.
+ *
+ * @param {array} coll - Array of any elements.
+ * @param {function} pred - Predicate function.
+ *
+ * @return {array} result - Array of elements that does not satisfies the predicate.
+ */
+function reject(coll, pred) {
+  var result = [];
+
+  for (var i = 0; i < coll.length; i++) {
+    var item = coll[i];
+    if (!pred(item)) {
+      result.push(item);
+    }
+  }
+
+  return result;
+}
